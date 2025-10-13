@@ -1,10 +1,12 @@
 package com.haiul.Online.Food.Ordering.dto;
 
 import jakarta.persistence.Column;
+import jakarta.persistence.Embeddable;
 import lombok.Data;
 
 import java.util.List;
 
+@Embeddable
 @Data
 public class RestaurantDto {
     private String title;

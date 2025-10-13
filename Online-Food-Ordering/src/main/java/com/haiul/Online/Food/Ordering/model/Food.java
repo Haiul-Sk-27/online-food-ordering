@@ -1,18 +1,20 @@
 package com.haiul.Online.Food.Ordering.model;
 
 import jakarta.persistence.*;
-import jdk.jfr.Category;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import com.haiul.Online.Food.Ordering.model.Category;
+
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-
+@Entity
 public class Food {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -25,7 +27,7 @@ public class Food {
     private Long price;
 
     @ManyToOne
-    private Category foodCategory;
+    private Category foodCategoryy;
 
     @Column(length = 1000)
     @ElementCollection
@@ -40,9 +42,9 @@ public class Food {
 
     private boolean isSessonal;
 
-    @ManyToOne
+    @OneToMany
     private List<IngredientsItem> ingredients = new ArrayList<>();
 
 
-    private Data creationDate;
+    private Date creationDate;
 }

@@ -37,9 +37,6 @@ public class Order {
     @ManyToOne
     private Address deliveryAddress;
 
-    @OneToOne
-    private List<Orderiteam> items;
-
 //    private Payment payment;
 
     private int totalIteam;

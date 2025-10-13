@@ -32,6 +32,8 @@ public class Restaurent {
     @OneToOne
     private Address address;
 
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "contact_info_id", referencedColumnName = "id")
     private ContactInformation contactInformation;
 
     private String openingHours;
