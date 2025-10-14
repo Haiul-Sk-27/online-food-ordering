@@ -39,7 +39,6 @@ public class AuthController {
     @Autowired
     private CartRepository cartRepository;
 
-    // ------------------ SIGNUP -------------------
     @PostMapping("/signup")
     public ResponseEntity<AuthResponse> createUserHandle(@RequestBody User user) throws Exception {
 
@@ -73,7 +72,6 @@ public class AuthController {
         return new ResponseEntity<>(authResponse, HttpStatus.CREATED);
     }
 
-    // ------------------ SIGNIN -------------------
     @PostMapping("/signin")
     public ResponseEntity<AuthResponse> signin(@RequestBody LoginRequest req) {
         Authentication authentication = authenticate(req.getEmail(), req.getPassword());
@@ -90,7 +88,6 @@ public class AuthController {
         return new ResponseEntity<>(response, HttpStatus.OK);
     }
 
-    // ------------------ HELPER METHOD -------------------
     private Authentication authenticate(String email, String password) {
         UserDetails userDetails = customerUserDetailsService.loadUserByUsername(email);
 

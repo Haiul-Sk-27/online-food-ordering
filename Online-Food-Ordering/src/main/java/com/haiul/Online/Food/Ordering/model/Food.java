@@ -4,7 +4,6 @@ import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import com.haiul.Online.Food.Ordering.model.Category;
 
 
 import java.util.ArrayList;
@@ -36,7 +35,7 @@ public class Food {
     private boolean available;
 
     @ManyToOne
-    private Restaurent restaurent;
+    private Restaurant restaurant;
 
     private boolean isVegetarian;
 

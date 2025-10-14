@@ -1,7 +1,6 @@
 package com.haiul.Online.Food.Ordering.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -25,7 +24,7 @@ public class IngredientCategory {
 
     @JsonIgnore
     @ManyToOne
-    private Restaurent restaurent;
+    private Restaurant restaurant;
 
     @OneToMany(mappedBy = "category",cascade = CascadeType.ALL)
     private List<IngredientsItem> ingredients = new ArrayList<>();

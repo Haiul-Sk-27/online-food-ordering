@@ -7,7 +7,6 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.util.Date;
-import java.util.List;
 
 @Entity
 @Data
@@ -26,7 +25,7 @@ public class Order {
 
     @JsonIgnore
     @ManyToOne
-    private Restaurent restaurent;
+    private Restaurant restaurant;
 
     private Long totalAmount;
 

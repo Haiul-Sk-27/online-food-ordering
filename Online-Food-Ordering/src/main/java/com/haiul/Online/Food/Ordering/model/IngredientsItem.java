@@ -23,7 +23,7 @@ public class IngredientsItem {
 
     @JsonIgnore
     @ManyToOne
-    private Restaurent restaurent;
+    private Restaurant restaurant;
 
     private boolean inStoke = true;
 

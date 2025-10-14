@@ -14,7 +14,7 @@ import java.util.List;
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
-public class Restaurent {
+public class Restaurant {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -24,6 +24,8 @@ public class Restaurent {
     private User owner;
 
     private String name;
+
+    private String title;
 
     private String description;
     private String cuisineType;
@@ -37,7 +39,7 @@ public class Restaurent {
 
     private String openingHours;
 
-    @OneToMany(mappedBy = "restaurent",cascade = CascadeType.ALL,orphanRemoval = true)
+    @OneToMany(mappedBy = "restaurant",cascade = CascadeType.ALL,orphanRemoval = true)
     private List<Order> orders = new ArrayList<>();
 
     @ElementCollection
@@ -49,6 +51,7 @@ public class Restaurent {
     private  boolean open;
 
     @JsonIgnore
-    @OneToMany(mappedBy = "restaurent",cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "restaurant",cascade = CascadeType.ALL)
     private List<Food> foods = new ArrayList<>();
+
 }
