@@ -2,9 +2,11 @@ package com.haiul.Online.Food.Ordering.request;
 
 import com.haiul.Online.Food.Ordering.model.Category;
 import com.haiul.Online.Food.Ordering.model.IngredientsItem;
+import lombok.Data;
 
 import java.util.List;
 
+@Data
 public class CreateFoodRequest {
     private String name;
     private String description;
@@ -16,6 +18,7 @@ public class CreateFoodRequest {
 
     private Long restaurantId;
     private boolean vegetarin;
-    private boolean seasional;
+    private boolean seasonal;
     private List<IngredientsItem> ingredientsItems;
+
 }

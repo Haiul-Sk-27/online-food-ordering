@@ -26,7 +26,8 @@ public class Food {
     private Long price;
 
     @ManyToOne
-    private Category foodCategoryy;
+    @JoinColumn(name = "food_category_id")
+    private Category foodCategory;
 
     @Column(length = 1000)
     @ElementCollection
@@ -39,7 +40,7 @@ public class Food {
 
     private boolean isVegetarian;
 
-    private boolean isSessonal;
+    private boolean isSeasonal;
 
     @OneToMany
     private List<IngredientsItem> ingredients = new ArrayList<>();

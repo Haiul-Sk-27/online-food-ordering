@@ -1,0 +1,15 @@
+package com.haiul.Online.Food.Ordering.service;
+
+import com.haiul.Online.Food.Ordering.model.Category;
+
+import java.util.List;
+
+public interface CategoryService {
+
+   public Category createCategory(String name,Long userId) throws Exception;
+
+   public  List<Category> findCategoryByRestaurentId(Long id) throws Exception;
+
+   public Category findCategoryById(Long id) throws  Exception;
+
+}
