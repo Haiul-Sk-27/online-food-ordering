@@ -7,6 +7,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.util.Date;
+import java.util.List;
 
 @Entity
 @Data
@@ -38,7 +39,12 @@ public class Order {
 
 //    private Payment payment;
 
-    private int totalIteam;
+    private int totalItem;
 
-    private int totalPrice;
+    private Long totalPrice;
+
+    // ✅ Add this relationship to store order items
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private List<OrderItem> items;
+
 }

@@ -27,6 +27,7 @@ public class CartItem {
 
     private int quantity;
 
+    @ElementCollection
     private List<String> ingredients;
 
     private  Long totalPrice;

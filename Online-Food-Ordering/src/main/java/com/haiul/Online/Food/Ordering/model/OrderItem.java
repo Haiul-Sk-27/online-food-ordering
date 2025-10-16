@@ -11,7 +11,7 @@ import java.util.List;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class Orderiteam {
+public class OrderItem {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -20,9 +20,10 @@ public class Orderiteam {
     @ManyToOne
     private Food food;
 
-    private int quentity;
+    private int quantity;
 
     private Long totalPrice;
 
+    @ElementCollection
     private List<String> ingredients;
 }

@@ -3,10 +3,11 @@ package com.haiul.Online.Food.Ordering.service;
 import com.haiul.Online.Food.Ordering.model.Cart;
 import com.haiul.Online.Food.Ordering.model.CartItem;
 import com.haiul.Online.Food.Ordering.request.AddCartItemResquest;
+import com.haiul.Online.Food.Ordering.request.UpdateCartItemRequest;
 
 public interface CartService {
 
-    public CartItem addToCart(AddCartItemResquest req, String jwt) throws Exception;
+    public CartItem addItemToCart(AddCartItemResquest req, String jwt) throws Exception;
 
     public  CartItem updateCartItemQuantity(Long cartItemId, int quantity) throws Exception;
 
