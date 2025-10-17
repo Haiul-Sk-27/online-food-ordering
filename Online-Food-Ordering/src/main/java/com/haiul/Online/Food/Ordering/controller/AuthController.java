@@ -2,7 +2,6 @@ package com.haiul.Online.Food.Ordering.controller;
 
 import com.haiul.Online.Food.Ordering.config.JwtProvider;
 import com.haiul.Online.Food.Ordering.model.Cart;
-import com.haiul.Online.Food.Ordering.model.USER_ROLE;
 import com.haiul.Online.Food.Ordering.model.User;
 import com.haiul.Online.Food.Ordering.repository.CartRepository;
 import com.haiul.Online.Food.Ordering.repository.UserRepository;
