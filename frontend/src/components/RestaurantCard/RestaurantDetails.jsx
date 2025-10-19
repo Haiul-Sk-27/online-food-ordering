@@ -5,6 +5,7 @@ import CalendarTodayIcon from '@mui/icons-material/CalendarToday';
 import { Label } from '@mui/icons-material';
 import { FormControlLabel, Radio } from '@mui/material';
 import { useState } from 'react';
+import MenuCard from './MenuCard';
 
 const categories = [
     "pizza",
@@ -20,6 +21,9 @@ const foodTypes = [
     { label: "Non-Vegetarian", value: "non_vegetarian" },
     { label: "Seasonal", value: "seasonal" },
 ];
+
+
+const menu=[1,1,1,1]
 const RestaurantDetails = () => {
 
     const [foodType, setFoodType] = useState("all");
@@ -96,7 +100,9 @@ const RestaurantDetails = () => {
                             </FormControl>
                         </div>
 
-                        <div>
+                        <Divider/>
+
+                        <div className='mt-5'>
                             <Typography variant='h5' sx={{ paddingBottom: "1rem" }}>
                                 Food Categories
                             </Typography>
@@ -110,9 +116,7 @@ const RestaurantDetails = () => {
                     </div>
                 </div>
 
-                <div className='space-y-5 lg:w-[80%] lg:pl-10'>
-
-                </div>
+                <div className='space-y-5 lg:w-[80%] lg:pl-1'>{menu.map((item)=><MenuCard/>)}</div>
             </section>
         </div>
     )
