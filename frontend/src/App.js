@@ -1,11 +1,19 @@
 import logo from './logo.svg';
 import './App.css';
+import { Navbar } from './components/Navbar/Navbar';
+import { CssBaseline, ThemeProvider } from '@mui/material';
+import {darkTheme} from './theme/DarkTheme'
+import Home from './components/Home/Home';
+import RestaurantDetails from './components/RestaurantCard/RestaurantDetails';
 
 function App() {
   return (
-    <div className='text-amber-500'>
-      <h1 className='text-red-700'>Hello Haiul!</h1>
-    </div>
+    <ThemeProvider theme={darkTheme}>
+      <CssBaseline/>
+      <Navbar/>
+      {/* <Home/> */}
+    <RestaurantDetails/>
+    </ThemeProvider>
   );
 }
 
