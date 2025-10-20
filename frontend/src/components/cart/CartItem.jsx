@@ -9,7 +9,7 @@ const CartItem = () => {
       <div className='lg:flex items-center lg:space-x-5'>
         <div>
           <img
-            className='w-[5rem] h-[5rem] object-cover rounded-lg'
+            className='w-[5rem] h-[5rem] object-cover rounded-sm'
             src='https://images.pexels.com/photos/958545/pexels-photo-958545.jpeg'
             alt='Biryani'
           />
