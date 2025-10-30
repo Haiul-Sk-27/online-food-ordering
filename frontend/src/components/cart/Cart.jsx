@@ -14,9 +14,7 @@ import { Grid } from '@mui/material';
 
 const items = [1, 1];
 
-const Cart = () => {
-
-  const style = {
+export const style = {
     position: 'absolute',
     top: '50%',
     left: '50%',
@@ -28,7 +26,11 @@ const Cart = () => {
     pt: 2,
     px: 4,
     pb: 3,
-  };
+  }; 
+
+const Cart = () => {
+
+  
 
   const [open, setOpen] = React.useState(false);
 
