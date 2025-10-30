@@ -31,7 +31,7 @@ const RegisterForm = () => {
   };
 
   return (
-    <div style={{ maxWidth: "500px", margin: "0 auto", padding: "2rem" }}>
+    <div style={{ maxWidth: "500px", margin: "0 auto" }}>
       <Typography variant="h5" align="center" gutterBottom>
         Register
       </Typography>
