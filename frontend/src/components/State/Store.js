@@ -7,7 +7,8 @@ import menuItemReduser from "./Menu/Reduser";
 const rooteReducer = combineReducers({
     auth:authReducer,
     restaurant:restaurantReducer,
-    menu:menuItemReduser
+    menu:menuItemReduser,
+    cart:cartReducer
 })
 
 export const store = legacy_createStore(rooteReducer,applyMiddleware(thunk));

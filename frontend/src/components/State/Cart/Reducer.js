@@ -9,7 +9,7 @@ const cartReducer = (state = initialState,action) =>{
     switch(action.type){
         case actionTypes.FIND_CART_REQUEST:
         case actionTypes.GET_ALL_CART_ITEMS_REQUEST:
-        case actionTypes.UPDATE.cARTITEM_REQUEST:
+        case actionTypes.UPDATE_CARTITEM_REQUEST:
         case actionTypes.REMOVE_CARTITEM_REQUEST:
             return{
                 ...state,
