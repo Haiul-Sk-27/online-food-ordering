@@ -6,7 +6,7 @@ import menuItemReduser from "./Menu/Reduser";
 import { orderReduser } from "./Oreder/Reducer";
 import { ingredientReducer } from "./Ingredients/Reducer";
 import restaurantsOrdersReduser from "./Restaurant Order/Reducer"
-
+import {cartReducer} from "./Cart/Reducer"
 const rooteReducer = combineReducers({
     auth:authReducer,
     restaurant:restaurantReducer,
