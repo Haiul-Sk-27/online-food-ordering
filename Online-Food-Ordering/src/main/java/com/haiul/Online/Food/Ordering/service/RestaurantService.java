@@ -8,7 +8,7 @@ import java.util.List;
 
 public interface RestaurantService {
 
-    Restaurant createRestaurant(CreateRestaurantRequest req, User user);
+    Restaurant createRestaurant(CreateRestaurantRequest req, User user) throws Exception;
 
     Restaurant updateRestaurant(Long restaurantId, CreateRestaurantRequest updateRequest) throws Exception;
 

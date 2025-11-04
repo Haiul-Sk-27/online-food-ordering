@@ -31,7 +31,7 @@ public class RestaurantServiceImpl implements RestaurantService {
     private UserRepository userRepository;;
 
     @Override
-    public Restaurant createRestaurant(CreateRestaurantRequest req, User user) {
+    public Restaurant createRestaurant(CreateRestaurantRequest req, User user) throws Exception {
 
         Address address = new Address();
         Address savedAddress = addressRepository.save(address);
