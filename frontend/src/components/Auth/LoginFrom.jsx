@@ -1,64 +1,77 @@
-import { Button, TextField, Typography } from '@mui/material'
-import { Formik } from 'formik'
-import React from 'react'
-import { Form } from 'formik'
-import { Field } from 'formik'
-import { useNavigate } from 'react-router-dom'
-import { useDispatch } from 'react-redux'
-import { loginUser } from '../State/Authentication/Action'
-
+import React from "react";
+import { Button, TextField, Typography } from "@mui/material";
+import { Formik, Form, Field } from "formik";
+import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { loginUser } from "../State/Authentication/Action";
 
 const initialValues = {
-  email:"",
-  password:"",
-}
-const LoginFrom = () => {
+  email: "",
+  password: "",
+};
 
-  const navigate = useNavigate("/account/register")
+const LoginForm = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
-  const handleSubmit = (values) =>{
-    dispatch(loginUser({userData:values,navigate}))
-  }
+  const { loading, error } = useSelector((store) => store.auth);
+
+  const handleSubmit = (values) => {
+    dispatch(loginUser({ userData: values, navigate }));
+  };
+
   return (
-    <div>
-      <Typography variant='h5' className='text-center'>
+    <div style={{ maxWidth: 400, margin: "auto", paddingTop: "3rem" }}>
+      <Typography variant="h5" align="center" gutterBottom>
         Login
       </Typography>
 
       <Formik onSubmit={handleSubmit} initialValues={initialValues}>
         <Form>
-          <Field 
-          as={TextField}
-          name="email"
-          label="email"
-          fullWidth
-          variant="outlined"
-          margin="normal"
+          <Field
+            as={TextField}
+            name="email"
+            label="Email"
+            type="email"
+            fullWidth
+            variant="outlined"
+            margin="normal"
           />
 
-          <Field 
-          as={TextField}
-          name="password"
-          label="password"
-          fullWidth
-          variant="outlined"
-          margin="normal"
+          <Field
+            as={TextField}
+            name="password"
+            label="Password"
+            type="password"
+            fullWidth
+            variant="outlined"
+            margin="normal"
           />
 
-          <Button sx={{mt:2,padding:"1rem"}} fullWidth variant='contained' type='submit'>Login</Button>
+          <Button
+            sx={{ mt: 2, padding: "1rem" }}
+            fullWidth
+            variant="contained"
+            type="submit"
+            disabled={loading}
+          >
+            {loading ? "Logging in..." : "Login"}
+          </Button>
         </Form>
       </Formik>
 
-      <Typography variant='body2' align='center' sx={{mt:3}}>
-        Don' t have an account?
+      {error && (
+        <Typography color="error" align="center" sx={{ mt: 2 }}>
+          {error}
+        </Typography>
+      )}
 
-        <Button onClick={() => navigate("/account/register")}>
-          register
-        </Button>
+      <Typography variant="body2" align="center" sx={{ mt: 3 }}>
+        Don’t have an account?{" "}
+        <Button onClick={() => navigate("/account/register")}>Register</Button>
       </Typography>
     </div>
-  )
-}
+  );
+};
 
-export default LoginFrom
+export default LoginForm;

@@ -3,7 +3,7 @@ import { authReducer } from "./Authentication/Reducer";
 import { thunk } from "redux-thunk";
 import restaurantReducer from "./Restaurant/Reducer";
 import menuItemReduser from "./Menu/Reduser";
-import { orderReduser } from "./Oreder/Reducer";
+import { orderReducer } from "./Oreder/Reducer";
 import { ingredientReducer } from "./Ingredients/Reducer";
 import restaurantsOrdersReduser from "./Restaurant Order/Reducer"
 import cartReducer from "./Cart/Reducer";
@@ -13,9 +13,11 @@ const rooteReducer = combineReducers({
     restaurant:restaurantReducer,
     menu:menuItemReduser,
     cart:cartReducer,
-    order:orderReduser,
-    resttaurantOrder:restaurantsOrdersReduser,
+    order:orderReducer,
+    restaurantOrder:restaurantsOrdersReduser,
     ingredient:ingredientReducer
 })
 
 export const store = legacy_createStore(rooteReducer,applyMiddleware(thunk));
+
+console.log("Initial Redux State:", store.getState());

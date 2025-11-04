@@ -1,23 +1,28 @@
-const initialState ={
-    loading:false,
-    orders:[],
-    error:null,
-    notifictation:[],
-}
+import * as actionTypes from './ActionTypes'; // ✅ if your constants are in a separate file
 
-export const orderReduser = (state = initialState,{type,payload}) => {
-    switch(type){
-        case GER_USERS_REQUEST:
-            return{...state,error:null,loading:true};
-        case GET_USER_ORDER_SUCCESS:
-            return {...state,error:null,loading:false,orders:payload}
-        case GET_USERS_ORDERS_SUCCESS:
-            return{...state,notifictation:payload,error:null,loading:false}
+const initialState = {
+  loading: false,
+  orders: [],
+  error: null,
+  notifications: [],
+};
 
-        case GET_USERS_NOTIFICTATION_FAILURE:
-            return {...state,error:payload,loading:false}
+export const orderReducer = (state = initialState, { type, payload }) => {
+  switch (type) {
+    case actionTypes.GET_USER_ORDER_REQUEST:
+      return { ...state, loading: true, error: null };
 
-        default:
-            return state;
-    }
-}
+    case actionTypes.GET_USER_ORDER_SUCCESS:
+      return { ...state, loading: false, error: null, orders: payload };
+
+    case actionTypes.GET_USER_NOTIFICATION_SUCCESS:
+      return { ...state, loading: false, error: null, notifications: payload };
+
+    case actionTypes.GET_USER_ORDER_FAILURE:
+    case actionTypes.GET_USER_NOTIFICATION_FAILURE:
+      return { ...state, loading: false, error: payload };
+
+    default:
+      return state;
+  }
+};

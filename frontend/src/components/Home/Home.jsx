@@ -1,38 +1,58 @@
-import React from 'react'
-import './Home.css'
-import MultiItemCarousel from './MultiItemCarousel'
-import RestaurantCard from '../Restaurant/RestaurantCard'
+import React, { useEffect } from 'react';
+import './Home.css';
+import MultiItemCarousel from './MultiItemCarousel';
+import RestaurantCard from '../Restaurant/RestaurantCard';
+import { useDispatch, useSelector } from 'react-redux';
+import { getAllRestaurantsAction } from '../State/Restaurant/Action';
 
-const restaurant = [1,1,1,1,1,1,1,1]
 const Home = () => {
-    return (
-        <div className=''>
-            <section className="banner -z-50 relative flex flex-col justify-center items-center">
-                <div className='w-[50vw] z-10 text-center'>
-                    <p className='text-2xl lg:text-6xl font-bold z-10 py-5'>H24 Food</p>
-                    <p className='z-10 text-gray-300 text-xl lg:text-4xl'>Test the convenience:Food,Fast and delivery.</p>
-                </div>
+  const dispatch = useDispatch();
+  const jwt = localStorage.getItem('jwt');
+  const { restaurant } = useSelector(store => store);
 
-                <div className='cover absolute top-0 left-0 right-0'></div>
+  console.log('Redux restaurant state:', restaurant);
 
-                <div className='fadout '></div>
-            </section>
+  useEffect(() => {
+    if (jwt) {
+      dispatch(getAllRestaurantsAction(jwt));
+    }
+  }, [dispatch, jwt]);
 
-            <section className='p-10 lg:py-10 lg:px-20'>
-                <p className="text-2xl font-semibold text-gray-400 py-3 pb-10">Top Meels</p>
-                <MultiItemCarousel/>
-            </section>
-
-            <section className='px-5 lg:px-20 pt-10'>
-                <h1 className='text-2xl font-semibold text-gray-400 py-3'>Order From our favirotes Handpick</h1>
-                <div className='flex flex-wrap items-center justify-around gap-4'>
-                    {
-                        restaurant.map((item) => <RestaurantCard/>)
-                    }
-                </div>
-            </section>
+  return (
+    <div>
+      <section className="banner -z-50 relative flex flex-col justify-center items-center">
+        <div className="w-[50vw] z-10 text-center">
+          <p className="text-2xl lg:text-6xl font-bold z-10 py-5">H24 Food</p>
+          <p className="z-10 text-gray-300 text-xl lg:text-4xl">
+            Taste the convenience: Food, Fast and Delivered.
+          </p>
         </div>
-    )
-}
 
-export default Home
+        <div className="cover absolute top-0 left-0 right-0"></div>
+        <div className="fadout"></div>
+      </section>
+
+      <section className="p-10 lg:py-10 lg:px-20">
+        <p className="text-2xl font-semibold text-gray-400 py-3 pb-10">Top Meals</p>
+        <MultiItemCarousel />
+      </section>
+
+      <section className="px-5 lg:px-20 pt-10">
+        <h1 className="text-2xl font-semibold text-gray-400 py-3">
+          Order From Our Favorite Handpicked Restaurants
+        </h1>
+        <div className="flex flex-wrap items-center justify-around gap-4">
+          {restaurant?.restaurants?.length > 0 ? (
+            restaurant.restaurants.map(item => (
+              <RestaurantCard key={item.id} restaurant={item} />
+            ))
+          ) : (
+            <p className="text-gray-500">No restaurants found.</p>
+          )}
+        </div>
+      </section>
+    </div>
+  );
+};
+
+export default Home;

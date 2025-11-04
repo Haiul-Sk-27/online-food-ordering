@@ -33,6 +33,7 @@ export const loginUser = (reqData) => async (dispatch) => {
 
   try {
     const { data } = await axios.post(`${API_URL}/auth/signin`, reqData.userData);
+    console.log("data",data)
 
     if (data.jwt) localStorage.setItem("jwt", data.jwt);
 
